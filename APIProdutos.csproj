@@ -1,10 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+			<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20240708204844_ReformedDatabase.cs" />
+    <Compile Remove="Migrations\20240708204844_ReformedDatabase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="storage\fotocell.jpg" />
+    <None Remove="storage\fototv.jpg" />
+    <None Remove="storage\headset.jpg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />

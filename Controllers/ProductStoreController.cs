@@ -16,7 +16,16 @@ public class ProductStoreController : ControllerBase
         _productStoreRepository = productStoreRepository;
     }
 
+    /// <summary>
+    /// Cadastrar um prouto e uma loja
+    /// </summary>
+    /// <param name="productStoreDto">Id do produto e da loja</param>
+    /// <returns>Objeto productStore recém-criado</returns>
+    /// <response code="201">Created</response>
+    /// <response code="400">Bad Request</response>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ProductStore>> AddProductStore([FromBody] ProductStoreDto productStoreDto)
     {
         ProductStore ProductS = await _productStoreRepository.AddProductStore(productStoreDto);
@@ -26,8 +35,18 @@ public class ProductStoreController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { storeId = createdProductStore.StoreId, productId = createdProductStore.ProductId }, createdProductStore);
     }
 
+    /// <summary>
+    /// Obter dados de um produto e uma loja
+    /// </summary>
+    /// <param name="storeId">Identificador da loja</param>
+    /// <param name="productId">Identificador do produto</param>
+    /// <returns>Dados de um produto e uma loja, com ID's especificados</returns>
+    /// <response code="200">Success</response>
+    /// <response code="404">Not Found</response>
     [HttpGet("{storeId}/{productId}")]
-    public async Task<ActionResult<ProductStore>> GetById(int storeId, int productId)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ProductStore>> GetById(Guid storeId, Guid productId)
     {
         ProductStore? productStore = await _productStoreRepository.GetById(storeId, productId);
 
@@ -39,7 +58,13 @@ public class ProductStoreController : ControllerBase
         return Ok(productStore);
     }
 
+    /// <summary>
+    /// Obter todos os produtos e lojas
+    /// </summary>
+    /// <returns>Coleção de produtos e lojas</returns>
+    /// <response code="200">Success</response>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<ProductStore>> GetAllProductStores()
     {
         var productStore = await _productStoreRepository.GetAllProductStores();
@@ -47,8 +72,20 @@ public class ProductStoreController : ControllerBase
         return Ok(productStore);
     }
 
+    /// <summary>
+    /// Atualizar dados (ID) de um produto e de uma loja
+    /// </summary>
+    /// <param name="storeId">Identificador da loja</param>
+    /// <param name="productId">Identificador do produto</param>
+    /// <returns>Conteúdo vazio</returns>
+    /// <response code="204">No Content</response>
+    /// <response code="404">Not Found</response>
+    /// <response code="400">Bad Request</response>
     [HttpPut("{storeId}/{productId}")]
-    public async Task<ActionResult<ProductStore>> UpdateProductStore(int storeId, int productId,[FromBody] ProductStoreDto productStoreDto)
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ProductStore>> UpdateProductStore(Guid storeId, Guid productId,[FromBody] ProductStoreDto productStoreDto)
     {
         if (storeId != productStoreDto.StoreId || productId != productStoreDto.ProductId)
         {
@@ -66,7 +103,7 @@ public class ProductStoreController : ControllerBase
     }
 
     [HttpDelete("{storeId}/{productId}")]
-    public async Task<ActionResult> DeleteProductStore(int storeId, int productId)
+    public async Task<ActionResult> DeleteProductStore(Guid storeId, Guid productId)
     {
         var result = await _productStoreRepository.DeleteProductStore(storeId, productId);
         

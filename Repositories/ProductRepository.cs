@@ -40,7 +40,7 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<bool> DeleteProduct(int id)
+    public async Task<bool> DeleteProduct(Guid id)
     {
         Product? product = _appDbContext.Products.FirstOrDefault(p => p.ProductId == id);
         
@@ -60,12 +60,12 @@ public class ProductRepository : IProductRepository
         return await _appDbContext.Products.Include(p => p.Category).ToListAsync();
     }
 
-    public async Task<Product> GetProductById(int id)
+    public async Task<Product?> GetProductById(Guid id)
     {
         return await _appDbContext.Products.Include(p => p.Category).FirstOrDefaultAsync(prod => prod.ProductId == id);
     }
 
-    public async Task<Product> UpdateProduct(int id, ProductDto productDto)
+    public async Task<Product?> UpdateProduct(Guid id, ProductDto productDto)
     {
         var product = await _appDbContext.Products.FindAsync(id);
 

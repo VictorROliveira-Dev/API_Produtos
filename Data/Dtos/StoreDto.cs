@@ -4,7 +4,7 @@ namespace APIProdutos.Data.Dtos;
 
 public class StoreDto
 {
-    public int StoreId { get; set; }
+    public Guid StoreId { get; set; }
 
     [StringLength(100)]
     public string StoreName { get; set; }

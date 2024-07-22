@@ -134,3 +134,6 @@ C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\refint\APIP
 C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\APIProdutos.pdb
 C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\APIProdutos.genruntimeconfig.cache
 C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\ref\APIProdutos.dll
+C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\APIProdutos.sourcelink.json
+C:\Users\victo\source\repos\APIProdutos\APIProdutos\bin\Debug\net8.0\APIProdutos.xml
+C:\Users\victo\source\repos\APIProdutos\APIProdutos\obj\Debug\net8.0\APIProdutos.xml

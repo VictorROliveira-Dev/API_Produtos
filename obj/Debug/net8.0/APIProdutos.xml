@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>APIProdutos</name>
+    </assembly>
+    <members>
+        <member name="M:APIProdutos.Controllers.CategoryController.AddCategory(APIProdutos.Data.Dtos.CategoryDto)">
+            <summary>
+            Cadastrar uma categoria
+            </summary>
+            <param name="categoryDto">Dados da categoria</param>
+            <returns>Objeto categoria recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.CategoryController.GetCategoryById(System.Int32)">
+            <summary>
+            Buscar uma categoria por ID
+            </summary>
+            <param name="id">Identificador da categoria</param>
+            <returns>Dados de uma categoria com ID específico</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.CategoryController.GetAllCategories">
+            <summary>
+            Obter todas as categorias
+            </summary>
+            <returns>Coleção de categorias</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.CategoryController.UpdateCategory(System.Int32,APIProdutos.Data.Dtos.CategoryDto)">
+            <summary>
+            Atualizar uma categoria
+            </summary>
+            <param name="id">Identificador da categoria</param>
+            <returns>Conteudo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+            <response code="404">Not Found</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.CategoryController.DeleteCategory(System.Int32)">
+            <summary>
+            Remover uma categoria
+            </summary>
+            <param name="id">Identificador da categoria</param>
+            <returns>Conteudo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductController.AddProduct(APIProdutos.Data.Dtos.ProductDto)">
+            <summary>
+            Cadastrar um produto
+            </summary>
+            <param name="productDto">Dados do produto</param>
+            <returns>Objeto produto recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductController.GetProductById(System.Guid)">
+            <summary>
+            Obter dados de um produto
+            </summary>
+            <param name="id">Identificador do produto</param>
+            <returns>Dados de um produto com ID especificado</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductController.GetAllProducts">
+            <summary>
+            Obter todos os produtos
+            </summary>
+            <returns>Coleção de produtos</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductController.UpdateProduct(System.Guid,APIProdutos.Data.Dtos.ProductDto)">
+            <summary>
+            Atualizar dados de um produto
+            </summary>
+            <param name="id">Identificador do produto</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductController.DeleteProduct(System.Guid)">
+            <summary>
+            Remover um produto
+            </summary>
+            <param name="id">Identificador do produto</param>
+            <returns>Conteudo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductStoreController.AddProductStore(APIProdutos.Data.Dtos.ProductStoreDto)">
+            <summary>
+            Cadastrar um prouto e uma loja
+            </summary>
+            <param name="productStoreDto">Id do produto e da loja</param>
+            <returns>Objeto productStore recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductStoreController.GetById(System.Guid,System.Guid)">
+            <summary>
+            Obter dados de um produto e uma loja
+            </summary>
+            <param name="storeId">Identificador da loja</param>
+            <param name="productId">Identificador do produto</param>
+            <returns>Dados de um produto e uma loja, com ID's especificados</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductStoreController.GetAllProductStores">
+            <summary>
+            Obter todos os produtos e lojas
+            </summary>
+            <returns>Coleção de produtos e lojas</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.ProductStoreController.UpdateProductStore(System.Guid,System.Guid,APIProdutos.Data.Dtos.ProductStoreDto)">
+            <summary>
+            Atualizar dados (ID) de um produto e de uma loja
+            </summary>
+            <param name="storeId">Identificador da loja</param>
+            <param name="productId">Identificador do produto</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.StoreController.CreateStore(APIProdutos.Data.Dtos.StoreDto)">
+            <summary>
+            Cadastrar uma loja
+            </summary>
+            <param name="storeDto">Dados da loja</param>
+            <returns>Objeto loja recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.StoreController.GetStoreById(System.Guid)">
+            <summary>
+            Obter dados de uma loja
+            </summary>
+            <param name="id">Identificador da loja</param>
+            <returns>Dados de uma loja com ID especificado</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.StoreController.GetAllStores">
+            <summary>
+            Obter todos as lojas
+            </summary>
+            <returns>Coleção de lojas</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.StoreController.UpdateAsync(System.Guid,APIProdutos.Data.Dtos.StoreDto)">
+            <summary>
+            Atualizar dados de uma loja
+            </summary>
+            <param name="id">Identificador da loja</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:APIProdutos.Controllers.StoreController.DeleteStore(System.Guid)">
+            <summary>
+            Remover uma loja
+            </summary>
+            <param name="id">Identificador da loja</param>
+            <returns>Conteudo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="T:APIProdutos.Migrations.ChangeGuidProp">
+            <inheritdoc />
+        </member>
+        <member name="M:APIProdutos.Migrations.ChangeGuidProp.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:APIProdutos.Migrations.ChangeGuidProp.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:APIProdutos.Migrations.ChangeGuidProp.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

@@ -29,7 +29,7 @@ public class StoreRepository : IStoreRepository
         return store;
     }
 
-    public async Task<bool> DeleteStore(int id)
+    public async Task<bool> DeleteStore(Guid id)
     {
         Store? store = await _appDbContext.Stores.FirstOrDefaultAsync(s => s.StoreId == id);
 
@@ -49,12 +49,12 @@ public class StoreRepository : IStoreRepository
         return await _appDbContext.Stores.ToListAsync();
     }
 
-    public async Task<Store?> GetStoreById(int id)
+    public async Task<Store?> GetStoreById(Guid id)
     {
         return await _appDbContext.Stores.FirstOrDefaultAsync(s => s.StoreId == id);  
     }
 
-    public async Task<Store?> UpdateAsync(int id, StoreDto storeDto)
+    public async Task<Store?> UpdateAsync(Guid id, StoreDto storeDto)
     {
         Store? store = await _appDbContext.Stores.FirstOrDefaultAsync(s => s.StoreId == id);
 

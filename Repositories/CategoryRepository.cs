@@ -66,7 +66,7 @@ public class CategoryRepository : ICategoryRepository
         category.CategoryName = categoryDto.CategoryName;
         category.Description = categoryDto.Description;
 
-        _appDbContext.Update(category);
+        _appDbContext.Categories.Update(category);
         await _appDbContext.SaveChangesAsync();
 
         return category;

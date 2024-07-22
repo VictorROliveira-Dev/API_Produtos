@@ -5,7 +5,7 @@ namespace APIProdutos.Models;
 public class Store
 {
     [Key]
-    public int StoreId { get; set; }
+    public Guid StoreId { get; set; } = Guid.NewGuid();
 
     [Required]
     [MaxLength(100)]

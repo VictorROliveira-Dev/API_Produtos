@@ -2,6 +2,6 @@
 
 public class ProductStoreDto
 {
-    public int StoreId { get; set; }
-    public int ProductId { get; set; }
+    public Guid StoreId { get; set; }
+    public Guid ProductId { get; set; }
 }

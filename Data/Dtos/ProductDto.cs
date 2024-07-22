@@ -4,7 +4,7 @@ namespace APIProdutos.Data.Dtos;
 
 public class ProductDto
 {
-    public int ProductId { get; set; }
+    public Guid ProductId { get; set; }
 
     [StringLength(100)]
     public string Name { get; set; }

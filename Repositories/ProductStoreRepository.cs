@@ -18,6 +18,16 @@ public class ProductStoreRepository : IProductStoreRepository
 
     public async Task<ProductStore> AddProductStore(ProductStoreDto productStoreDto)
     {
+        // Verificar se já existe uma ProductStore com as mesmas chaves
+        var existingProductStore = await _appDbContext.ProductStores
+            .FirstOrDefaultAsync(ps => ps.StoreId == productStoreDto.StoreId && ps.ProductId == productStoreDto.ProductId);
+
+        if (existingProductStore != null)
+        {
+            // Se já existir, pode retornar a entidade existente ou lançar uma exceção, dependendo da lógica do seu aplicativo
+            return existingProductStore;
+        }
+
         ProductStore ps = new ProductStore
         {
             StoreId = productStoreDto.StoreId,
@@ -30,7 +40,7 @@ public class ProductStoreRepository : IProductStoreRepository
         return ps;
     }
 
-    public async Task<bool> DeleteProductStore(int storeId, int productId)
+    public async Task<bool> DeleteProductStore(Guid storeId, Guid productId)
     {
         var productStore = await GetById(storeId, productId);
 
@@ -50,7 +60,7 @@ public class ProductStoreRepository : IProductStoreRepository
         return await _appDbContext.ProductStores.Include(ps => ps.Store).Include(ps => ps.Product).ToListAsync();
     }
 
-    public async Task<ProductStore?> GetById(int storeId, int productId)
+    public async Task<ProductStore?> GetById(Guid storeId, Guid productId)
     {
         return await _appDbContext.ProductStores
                                   .Include(ps => ps.Store)
